@@ -1,10 +1,18 @@
 <? 
-	// Registration
-
-	var_dump($_POST);
+	$errorPass = "";
+	
+	if (!empty($_POST)){
+		var_dump($_POST);
+		$isReg = true;
+		
+		if ($_POST['pass']!=$_POST['pass2']){
+			$isReg = false;
+			$errorPass = "Пароли должны совпадать";
+		}
+	}
 	
 	//$_GET
-
+// Registration
 	$title = "Регистрация";
 	$descr = "Регистрация ....";
 	$contentView = "registrationView.php";
