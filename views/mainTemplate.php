@@ -23,13 +23,15 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li <?if($active == "index"):?> class="active"<?endif?>?>><a href="/">Главная</a></li>
-                    <li <?if($active == "about"):?> class="active"<?endif?>?>><a href="/about">О магазине</a></li>
-                    <li <?if($active == "news"):?> class="active"<?endif?>?>><a href="/news">Новости</a></li>
-                    <li <?if($active == "production"):?> class="active"<?endif?>?>><a href="/production">Продукция</a></li>
-                    <li <?if($active == "contacts"):?> class="active"<?endif?>?>><a href="/contacts">Контакты</a></li>
+                    <li <?if($active == "index"):?> class="active"<?endif?>?><a href="/">Главная</a></li>
+                    <li <?if($active == "about"):?> class="active"<?endif?>?><a href="/about">О магазине</a></li>
+                    <li <?if($active == "news"):?> class="active"<?endif?>?><a href="/news">Новости</a></li>
+                    <li <?if($active == "production"):?> class="active"<?endif?>?><a href="/production">Продукция</a></li>
+                    <li <?if($active == "contacts"):?> class="active"<?endif?>?><a href="/contacts">Контакты</a></li>
+                    <li <?if($active == "registration"):?> class="active"<?endif?>?><a href="/registration">Регистрация</a></li>
                 </ul>
             </div><!-- /.nav-collapse -->
+            
         </div><!-- /.container -->
     </div>
 
