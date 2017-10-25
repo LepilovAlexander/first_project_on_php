@@ -28,8 +28,10 @@
                     <li <?if($active == "news"):?> class="active"<?endif?>?><a href="/news">Новости</a></li>
                     <li <?if($active == "production"):?> class="active"<?endif?>?><a href="/production">Продукция</a></li>
                     <li <?if($active == "contacts"):?> class="active"<?endif?>?><a href="/contacts">Контакты</a></li>
-                    <li <?if($active == "registration"):?> class="active"<?endif?>?><a href="/registration">Регистрация</a></li>
                 </ul>
+                <span style="float: right; color: #fff; margin-top: 0.8%">
+                    <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Войти</button>  
+                </span>
             </div><!-- /.nav-collapse -->
             
         </div><!-- /.container -->
@@ -45,6 +47,30 @@
             <p>&copy; Company 2014</p>
         </footer>
     </div>
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Авторизация</h4>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <a href="/registration" class="btn btn-success">Зарегестрироваться</a>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+        <button type="button" class="btn btn-primary">Войти</button>
+      </div>
+    </div>
+  </div>
+</div> <!-- End Modal -->
 
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
