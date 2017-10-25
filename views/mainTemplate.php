@@ -61,18 +61,42 @@
         <h4 class="modal-title" id="myModalLabel">Авторизация</h4>
       </div>
       <div class="modal-body">
-        
+        <form action="#" method="post">
+           <div class="form-group">
+                <label for="exampleInputEmail1" id="login">Логин</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Укажите логин">
+                </div>
+             <div class="form-group">
+                <label for="exampleInputPassword1" id="pass">Пароль</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Укажите пароль">
+  </div>         
+        </form>
       </div>
       <div class="modal-footer">
         <a href="/registration" class="btn btn-success">Зарегестрироваться</a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-        <button type="button" class="btn btn-primary">Войти</button>
+        <button type="button" class="btn btn-primary" id="logIn">Войти</button>
       </div>
     </div>
   </div>
 </div> <!-- End Modal -->
 
+    
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
+    
+    <script>
+        $(function(){
+            $("#logIn").click(function(){
+                var login = $("#login").val();
+                var pass = $("#pass").val();
+                
+                $.post("/post/login.php", {l: login, p: pass}, function(Response){});
+            });
+        });
+
+
+    </script>
+
 </body>
 </html>
