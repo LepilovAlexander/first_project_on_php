@@ -1,15 +1,21 @@
 <? 
-	if((isset($_POST['l']) && issetisset($_POST['p'])){
+	if(  isset($_POST['l']) && isset($_POST['p']) ){
+		
+
 		$login = $_POST['l'];
 		$pass = $_POST['p'];
 
-		if ($login == 'root' && $pass=="root") {
-			echo "welcome";		
+		if ($pass=="root") { // && $login == 'root' - убрано
+			session_start();
+			$_SESSION['isLogin'] = true;
+			$_SESSION['login'] = $login;
+			echo "0";	
+			
+
 		}
 		else{
-			echo "no";	
+			echo "Неверный логин или пароль";	
 		}
 	}
 
-		
 ?>

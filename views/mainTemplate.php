@@ -1,3 +1,7 @@
+<? 
+    session_start(); 
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -30,7 +34,14 @@
                     <li <?if($active == "contacts"):?> class="active"<?endif?>?><a href="/contacts">Контакты</a></li>
                 </ul>
                 <span style="float: right; color: #fff; margin-top: 0.8%">
-                    <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Войти</button>  
+                    <?if(isset($_SESSION['login'])):?>
+                        <span>Привет <?=$_SESSION['login']?>!</span>
+                        <a class="btn btn-info" href="/post/logOut.php">Выйти</a>
+                    <?else:?>
+                        <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Войти</button>
+                    <?endif?>
+                    
+                      
                 </span>
             </div><!-- /.nav-collapse -->
             
@@ -48,10 +59,10 @@
         </footer>
     </div>
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   Launch demo modal
-</button>
-
+</button> -->
+<?if(!isset($_SESSION['login'])):?>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -63,13 +74,14 @@
       <div class="modal-body">
         <form action="#" method="post">
            <div class="form-group">
-                <label for="exampleInputEmail1" id="login">Логин</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Укажите логин">
+                <label for="login">Логин</label>
+                <input type="email" class="form-control" id="login" placeholder="Укажите логин">
                 </div>
              <div class="form-group">
-                <label for="exampleInputPassword1" id="pass">Пароль</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Укажите пароль">
-  </div>         
+                <label for="pass">Пароль</label>
+                <input type="password" class="form-control" id="pass" placeholder="Укажите пароль">
+        </div>    
+            <p id="loginError" class="text-danger"></p>     
         </form>
       </div>
       <div class="modal-footer">
@@ -80,7 +92,7 @@
     </div>
   </div>
 </div> <!-- End Modal -->
-
+<?endif?>
     
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
@@ -88,10 +100,22 @@
     <script>
         $(function(){
             $("#logIn").click(function(){
+                $("#logIn").prop("disabled", true);//блокируем кнопку
+                $("#loginError").hide().empty();//пишем что неверный пароль или логин
                 var login = $("#login").val();
                 var pass = $("#pass").val();
                 
-                $.post("/post/login.php", {l: login, p: pass}, function(Response){});
+                $.post("/post/login.php", {l: login, p: pass}, function(Response){
+                    if(Response=="0"){
+                        // response page 
+                        location.reload();
+                    }
+                    else {
+                        $("#logIn").prop("disabled", false);
+                        $("#loginError").show().html(Response);
+                    }
+
+                });
             });
         });
 

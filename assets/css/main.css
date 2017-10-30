@@ -22,7 +22,9 @@ label{
   display: block;
   margin: 10px;
 }
-
+#loginError{
+  display: none;
+}
 
 
 /*
