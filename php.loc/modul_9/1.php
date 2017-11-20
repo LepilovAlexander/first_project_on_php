@@ -81,7 +81,7 @@ tr.w{
 </head>
 <body>
 	<table>
-		<thhead>
+		<thead>
 			<tr>
 				 <th>#</th>
 				<th>Фамилия</th>
@@ -91,7 +91,7 @@ tr.w{
 				<th>Город рождения</th>
 				<th>Дата рождения</th>
 			</tr>
-		</thhead>
+		</thead>
 
 		<tbody>
 			<?$i=0;foreach($readers AS $reader):$i++?>
