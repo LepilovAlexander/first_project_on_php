@@ -91,8 +91,8 @@ td, th{
 	</style>
 </head>
 <body>
-<a href="http://localhost/php.loc/modul_10/?order=asc">По алфавиту</a>
-<a href="http://localhost/php.loc/modul_10/?order=desc">В обратном порядке</a>
+<a href="http://localhost/php.loc/modul_10/asc">По алфавиту</a>
+<a href="http://localhost/php.loc/modul_10/desc">В обратном порядке</a>
 
 	<div>
 		<table>
